@@ -37,11 +37,11 @@ Player.prototype.draw = function () {
   }
 }
 
-setSpeed (speed) {
+Player.prototype.setSpeed = function (speed) {
   this.speed = speed;
 }
 
-setDirection (direction) {
+Player.prototype.setDirection = function (direction) {
   this.direction = direction;
 }
 
