@@ -1,14 +1,14 @@
 'use strict';
 
 function main () {
-  const canvasWidth = 800;
-  const canvasHeight = 600;
+  var canvasWidth = 800;
+  var canvasHeight = 600;
 
-  const container = document.querySelector('.container');
-  const maxGoals = 3;
+  var container = document.querySelector('.container');
+  var maxGoals = 3;
 
-  const canvas = new Canvas(container, canvasWidth, canvasHeight);
-  const game = new Game(canvas.ctx, canvasWidth, canvasHeight, gameEnded, maxGoals);
+  var canvas = new Canvas(container, canvasWidth, canvasHeight);
+  var game = new Game(canvas.ctx, canvasWidth, canvasHeight, gameEnded, maxGoals);
 
   // Build Splash
   function buildSplash () {
