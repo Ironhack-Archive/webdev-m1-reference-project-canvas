@@ -50,7 +50,7 @@ function main() {
 
   // Destroy Game and build Game Over
   function destroyGame(winner) {
-    buildGameOverHTML(winner);
+    buildGameOver(winner);
     window.removeEventListener('keydown', handleKeyDown);
     window.removeEventListener('keyup', handleKeyUp);
   }
@@ -70,7 +70,6 @@ function main() {
     </div>
     `)
     document.body.appendChild(restartScreen);
-
   }
 
   buildSplash();
