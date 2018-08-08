@@ -6,7 +6,9 @@ function Canvas(container, width, height) {
   this.canvasElement.setAttribute('height', height);
 
   this.container = container;
-  this.container.appendChild(this.canvasElement);
-
   this.ctx = this.canvasElement.getContext('2d');
+}
+
+Canvas.prototype.addCanvasToScreen = function() {
+  this.container.appendChild(this.canvasElement);
 }

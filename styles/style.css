@@ -24,11 +24,50 @@ body {
   color: white;
 }
 
+/* --- layout --- */
+
 .container {
-  padding-top: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- restart screen --- */
+
+.restart-game {
+  text-align: center;
+}
+
+.restart-game h1 {
+  font-size: 48px;
+}
+
+.restart-game p {
+  font-size: 36px;
+}
+
+#restart-button {
+  min-width: 200px;
+  min-height: 70px;
+  border: none;
+  background: #eee;
+}
+
+#restart-button:hover {
+  background: #fff;
+}
+
+#restart-button:active {
+  background: #ddd;
 }
 
 canvas {
   margin: 0 auto;
   display: block;
+}
+
+/* --- Typography --- */
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }

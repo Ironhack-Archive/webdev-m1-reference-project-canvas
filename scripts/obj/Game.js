@@ -203,19 +203,6 @@ Game.prototype.destroySplash = function () {
   this.clearCanvas();
 }
 
-Game.prototype.build = function () {
-  this.player1 = new Player(this.ctx, 'left', this.canvasWidth, this.canvasHeight);
-  this.player2 = new Player(this.ctx, 'right', this.canvasWidth, this.canvasHeight);
-  this.ball = new Ball(this.ctx, this.canvasWidth, this.canvasHeight);
-
-  this.players.push(this.player1);
-  this.players.push(this.player2);
-
-  this.balls.push(this.ball);
-
-  this.doFrame();
-}
-
 Game.prototype.clearCanvas = function () {
   this.ctx.clearRect(0, 0, this.canvasWidth, this.canvasHeight);
 }
@@ -369,9 +356,14 @@ Game.prototype.destroy = function () {
   this.clearCanvas();
 }
 
-Game.prototype.resetGame = function () {
+Game.prototype.reset = function () {
   this.players = [];
   this.balls = [];
+  this.player1 = null;
+  this.player2 = null;
+  this.ball = null;
+  this.ended = false;
+
 }
 
 Game.prototype.buildGameOver = function (winner) {

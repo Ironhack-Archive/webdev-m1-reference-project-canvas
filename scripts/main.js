@@ -10,6 +10,8 @@ function main() {
   var canvasWidth = 800;
   var canvasHeight = 600;
 
+  var restartScreen;
+
   var container = document.querySelector('.container');
   var maxGoals = 3;
 
@@ -19,10 +21,10 @@ function main() {
   // Build Splash
   function buildSplash() {
     game.buildSplash();
+    canvas.addCanvasToScreen()
     canvas.canvasElement.addEventListener('click', startGame);
   }
 
-  // Desktroy Splash and build Gthis.ended = false;ame
   function startGame() {
     canvas.canvasElement.removeEventListener('click', startGame);
     game.destroySplash();
@@ -56,20 +58,30 @@ function main() {
   }
 
   function buildGameOver(winner) {
-    game.buildGameOver(winner);
+    buildGameOverHTML(winner);
     canvas.canvasElement.addEventListener('click', startGame);
   }
 
   function buildGameOverHTML(winner) {
-    canvas.remove();
-    var restartScreen = createHtml(`
-    <div>
-      <p>Game over</p>
-      <p>The player on the ${winner} won</p>
-      <button>Restart Game</button>
+    canvas.canvasElement.remove();
+    restartScreen = createHtml(`
+    <div class="restart-game">
+      <h1>Game over</h1>
+      <p>The player on the ${winner.side} won</p>
+      <button id="restart-button">Restart Game</button>
     </div>
     `)
-    document.body.appendChild(restartScreen);
+    container.appendChild(restartScreen);
+
+    var restartButton = document.getElementById('restart-button');
+    restartButton.addEventListener('click', restartGame)
+  }
+
+  function restartGame() {
+    restartScreen.remove();
+    canvas.addCanvasToScreen();
+    game.reset();
+    game.build();
   }
 
   buildSplash();
