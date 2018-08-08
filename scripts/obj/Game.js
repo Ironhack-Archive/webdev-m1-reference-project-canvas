@@ -9,6 +9,16 @@ function Game(ctx, canvasWidth, canvasHeight, cb, maxGoals) {
   this.player2 = null;
   this.ball = null;
 
+  // Ball Settings
+  this.ballRadius = 10;
+  this.ballSpeed = 2;
+
+  // Player Settings
+  this.playerWidth = 10;
+  this.playerHeight = 120;
+  this.writeScoreOffsetX = 100;
+  this.writeScoreOffsetY = 150;
+
   this.players = [];
   this.balls = [];
 
@@ -56,9 +66,9 @@ Game.prototype.destroySplash = function () {
 }
 
 Game.prototype.build = function () {
-  this.player1 = new Player(this.ctx, 'left', this.canvasWidth, this.canvasHeight);
-  this.player2 = new Player(this.ctx, 'right', this.canvasWidth, this.canvasHeight);
-  this.ball = new Ball(this.ctx, this.canvasWidth, this.canvasHeight);
+  this.player1 = new Player(this.ctx, 'left', this.canvasWidth, this.canvasHeight, this.playerWidth, this.playerHeight, this.borderWidth, this.writeScoreOffsetX, this.writeScoreOffsetY);
+  this.player2 = new Player(this.ctx, 'right', this.canvasWidth, this.canvasHeight, this.playerWidth, this.playerHeight, this.borderWidth, this.writeScoreOffsetX, this.writeScoreOffsetY);
+  this.ball = new Ball(this.ctx, this.canvasWidth, this.canvasHeight, this.ballRadius, this.ballSpeed);
 
   this.players.push(this.player1);
   this.players.push(this.player2);

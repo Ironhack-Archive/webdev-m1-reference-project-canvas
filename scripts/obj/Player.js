@@ -1,19 +1,19 @@
 'use strict';
 
-function Player (ctx, side, canvasWidth, canvasHeight) {
+function Player (ctx, side, canvasWidth, canvasHeight, width, height, borderWidth, scoreOffsetX, scoreOffsetY) {
   this.ctx = ctx;
   this.side = side;
   this.canvasHeight = canvasHeight;
   this.canvasWidth = canvasWidth;
   this.y = canvasHeight / 2;
-  this.width = 10;
-  this.height = 120;
+  this.width = width;
+  this.height = height;
   this.speed = 0;
   this.score = 0;
   this.direction = null;
-  this.borderWidth = 20;
-  this.writeScoreOffsetX = 100;
-  this.writeScoreOffsetY = 150;
+  this.borderWidth = borderWidth;
+  this.writeScoreOffsetX = scoreOffsetX;
+  this.writeScoreOffsetY = scoreOffsetY;
 
   if (this.side === 'left') {
     this.x = this.borderWidth;

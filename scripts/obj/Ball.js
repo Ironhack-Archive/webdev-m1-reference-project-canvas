@@ -1,15 +1,15 @@
 'use strict';
 
-function Ball(ctx, canvasWidth, canvasHeight) {
+function Ball(ctx, canvasWidth, canvasHeight, radius, speed) {
   this.ctx = ctx;
   this.centerX = canvasWidth / 2;
   this.centerY = canvasHeight / 2;
   this.canvasWidth = canvasWidth;
   this.canvasHeight = canvasHeight;
-  this.radius = 10;
+  this.radius = radius;
   this.directionV = 1;
   this.directionH = 1;
-  this.speed = 2;
+  this.speed = speed;
 }
 
 Ball.prototype.draw = function () {
